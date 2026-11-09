@@ -1,41 +1,24 @@
 #include <iostream>
-#include <string>
+#include <cstdint>
 
 int main() {
-    int num1 = 0;
-    int num2 = 0;
+    uint8_t A = 0;
+    uint8_t PC = 0;
 
-    std::cout << "Enter the first number: \n";
-    std::cin >> num1;
-    std::cout << "Enter the second number: \n";
-    std::cin >> num2;
+    bool zeroFlag = false;
+    bool carryFlag = false;
+    bool halted = false;
 
-    int sum = 0;
-    sum = num1 + num2;
-     
-    int modulo = 0;
+    uint8_t RAM[256] = {};
 
-    modulo = sum%256;
+    RAM[0] = 10;
+    A = RAM[PC];
+    uint8_t instruction = A;
+    PC++;
 
-    std::string string;
+   std::cout << static_cast<int>(PC) <<  static_cast<int>(instruction) << '\n';
 
 
-    if(sum <= 255){
-        string = ", no carry";
-        
-    }
-    else if (sum > 255) {
-        string = ",carry";
-    }
-   if (modulo == 0){
-        string += ", zero flag";
-    }
 
-    
-
-    std::cout <<  sum << modulo << string;
+    return 0;
 }
-
-
-
-
